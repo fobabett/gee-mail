@@ -1,0 +1,54 @@
+h1 {
+	color: #dd4b39;
+	cursor: pointer;
+	padding: 7px;
+	font-size: 14pt;
+	line-height: 29px;
+	font-family: arial sans-serif;
+}
+#compose {
+	background-color: #d14836;
+	background-image: -webkit-linear-
+	  gradient(top, #dd4b39, #d14836);
+	color: #fff;
+	border: 1px solid transparent;  
+	margin-left: 8px;
+	padding-top: 0;
+	padding-left: 0;
+	padding: 2px 4px 8px 17px;
+	min-width: 97px;
+	margin-right: 0;
+	text-transform: uppercase;
+	position: relative;
+	display: inline-block;
+	border-radius: 2px;
+	font-size: 11px;
+	font-weight:bold;
+	text-align: center;
+	white-sapce: nowrap;
+	height:27px;
+	line-height:27px;
+	outline: 0;
+}
+#inbox {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-sapce: nowrap;
+	margin-left: 17px;
+	color: #222;
+}
+#sent {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-sapce: nowrap;
+	margin-left: 17px;
+	color: #222;
+}
+#trash {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-sapce: nowrap;
+	margin-left: 17px;
+	color: #222;
+}
+
