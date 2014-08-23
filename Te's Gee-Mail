@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<script src="js/mail-generator.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<title>GeeMail Simulation</title>
+		  <script type="text/javascript">
+		    loadGeeMails();
+		    document.write( "<div class=\"container\">" );
++		for(key in window.geemails){
++			document.write( "<tr><td>" + window.geemails[key].date + "</td>" );
++			document.write( "<td>" + window.geemails[key].sender + "</td>" );
++			document.write( "<td>" + window.geemails[key].subject + "</td></tr>" );
++			document.write( "<div class=\"content\">" + window.geemails[key].body + "</div>");
++		}
+		  </script>  	
+		    
+	</head>
+
+	<body>
+		<div class="container" id="main">
+		  <h1>GeeMail</h1>
+		  <div class="navbar">
+		    
+		      <p>
+		      <a id="compose" href="compose">Compose</a>
+		      </p>
+              <p>
+                <a id="inbox" href="inbox">Inbox</a>
+              </p>  
+              <p>
+                <a id="sent" href="sent">Sent</a>
+              </p>
+              <p>
+                <a id="trash" href="trash">Trash</a>
+              </p> 
+	</div>	  
+	</body>
+</html>
