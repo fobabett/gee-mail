@@ -1,0 +1,110 @@
+<html>
+	<head>
+		<script src="mail-generator.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<title>GeeMail Simulation</title>
+		  <script type="text/javascript">
+		    window.onload = function(){
+		    	for(var i = 0; i < window.geemails.length; i++){
+		    		var message = window.geemails[i];
+		    		//subject
+		    		var newDiv = document.createElement('div');
+		    		var textElement = document.createTextNode(message.subject);
+		    		newDiv.appendChild(textElement);
+
+		    		var table = document.createElement('table');
+		    		var tableRow = document.createElement('tr');
+		    		var tableData = document.createElement('td');
+		    		var text = document.createTextNode(message.subject);
+
+		    		tableRow.appendChild(tableData);
+		    		table.appendChild(tableRow);
+		    		tableData.appendChild(text);
+
+		    		document.getElementById('content').appendChild(table);
+		    		//sender
+		    		var newDiv = document.createElement('div');
+		    		var textElement = document.createTextNode(message.sender);
+		    		newDiv.appendChild(textElement);
+
+		    		var table = document.createElement('table');
+		    		var tableRow = document.createElement('tr');
+		    		var tableData = document.createElement('td');
+		    		var text = document.createTextNode(message.sender);
+
+		    		tableRow.appendChild(tableData);
+		    		table.appendChild(tableRow);
+		    		tableData.appendChild(text);
+
+		    		document.getElementById('content').appendChild(table);
+		    		//date
+		    		var newDiv = document.createElement('div');
+		    		var textElement = document.createTextNode(message.date);
+		    		newDiv.appendChild(textElement);
+
+		    		var table = document.createElement('table');
+		    		var tableRow = document.createElement('tr');
+		    		var tableData = document.createElement('td');
+		    		var text = document.createTextNode(message.date);
+
+		    		tableRow.appendChild(tableData);
+		    		table.appendChild(tableRow);
+		    		tableData.appendChild(text);
+
+		    		document.getElementById('content').appendChild(table);
+
+		    		//body
+		    		var newDiv = document.createElement('div');
+		    		var textElement = document.createTextNode(message.body);
+		    		newDiv.appendChild(textElement);
+
+		    		var table = document.createElement('table');
+		    		var tableRow = document.createElement('tr');
+		    		var tableData = document.createElement('td');
+		    		var text = document.createTextNode(message.body);
+
+		    		tableRow.appendChild(tableData);
+		    		table.appendChild(tableRow);
+		    		tableData.appendChild(text);
+
+		    		document.getElementById('content').appendChild(table);	
+		    		//TRYING TO GET NEW MESSAGE
+		    		//Only loads one new message when page is refreshed
+		    		message(window.gmails);
+		    		
+					setInterval(function(){
+						var newMessage = getNewMessage();
+						message(newMessage);
+						console.log("New Message");
+						} ,1000
+					);
+		    	}
+		    }		
+		  </script>
+	
+	</head>
+
+	<body>
+		<div class="container" id="main">
+		  <h1>GeeMail</h1>
+		  <div class="navbar">
+		    
+		      <p>
+		      <a id="compose" href="compose">Compose</a>
+		      </p>
+              <p>
+                <a id="inbox" href="inbox">Inbox</a>
+              </p>  
+              <p>
+                <a id="sent" href="sent">Sent</a>
+              </p>
+              <p>
+                <a id="trash" href="trash">Trash</a>
+              </p> 
+	</div>
+
+			<div id = "content">
+
+			</div>	  
+	</body>
+</html>
