@@ -1,19 +1,87 @@
 <html>
 	<head>
-		<script src="js/mail-generator.js"></script>
+		<script src="mail-generator.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<title>GeeMail Simulation</title>
 		  <script type="text/javascript">
-		    loadGeeMails();
-		    document.write( "<div class=\"container\">" );
-+		for(key in window.geemails){
-+			document.write( "<tr><td>" + window.geemails[key].date + "</td>" );
-+			document.write( "<td>" + window.geemails[key].sender + "</td>" );
-+			document.write( "<td>" + window.geemails[key].subject + "</td></tr>" );
-+			document.write( "<div class=\"content\">" + window.geemails[key].body + "</div>");
-+		}
-		  </script>  	
-		    
+		    window.onload = function(){
+		    	for(var i = 0; i < window.geemails.length; i++){
+		    		var message = window.geemails[i];
+		    		//subject
+		    		var newDiv = document.createElement('div');
+		    		var textElement = document.createTextNode(message.subject);
+		    		newDiv.appendChild(textElement);
+
+		    		var table = document.createElement('table');
+		    		var tableRow = document.createElement('tr');
+		    		var tableData = document.createElement('td');
+		    		var text = document.createTextNode(message.subject);
+
+		    		tableRow.appendChild(tableData);
+		    		table.appendChild(tableRow);
+		    		tableData.appendChild(text);
+
+		    		document.getElementById('content').appendChild(table);
+		    		//sender
+		    		var newDiv = document.createElement('div');
+		    		var textElement = document.createTextNode(message.sender);
+		    		newDiv.appendChild(textElement);
+
+		    		var table = document.createElement('table');
+		    		var tableRow = document.createElement('tr');
+		    		var tableData = document.createElement('td');
+		    		var text = document.createTextNode(message.sender);
+
+		    		tableRow.appendChild(tableData);
+		    		table.appendChild(tableRow);
+		    		tableData.appendChild(text);
+
+		    		document.getElementById('content').appendChild(table);
+		    		//date
+		    		var newDiv = document.createElement('div');
+		    		var textElement = document.createTextNode(message.date);
+		    		newDiv.appendChild(textElement);
+
+		    		var table = document.createElement('table');
+		    		var tableRow = document.createElement('tr');
+		    		var tableData = document.createElement('td');
+		    		var text = document.createTextNode(message.date);
+
+		    		tableRow.appendChild(tableData);
+		    		table.appendChild(tableRow);
+		    		tableData.appendChild(text);
+
+		    		document.getElementById('content').appendChild(table);
+
+		    		//body
+		    		var newDiv = document.createElement('div');
+		    		var textElement = document.createTextNode(message.body);
+		    		newDiv.appendChild(textElement);
+
+		    		var table = document.createElement('table');
+		    		var tableRow = document.createElement('tr');
+		    		var tableData = document.createElement('td');
+		    		var text = document.createTextNode(message.body);
+
+		    		tableRow.appendChild(tableData);
+		    		table.appendChild(tableRow);
+		    		tableData.appendChild(text);
+
+		    		document.getElementById('content').appendChild(table);	
+		    		//TRYING TO GET NEW MESSAGE
+		    		//Only loads one new message when page is refreshed
+		    		message(window.gmails);
+		    		
+					setInterval(function(){
+						var newMessage = getNewMessage();
+						message(newMessage);
+						console.log("New Message");
+						} ,1000
+					);
+		    	}
+		    }		
+		  </script>
+	
 	</head>
 
 	<body>
@@ -33,6 +101,10 @@
               <p>
                 <a id="trash" href="trash">Trash</a>
               </p> 
-	</div>	  
+	</div>
+
+			<div id = "content">
+
+			</div>	  
 	</body>
 </html>
