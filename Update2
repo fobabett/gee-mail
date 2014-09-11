@@ -51,4 +51,15 @@ h1 {
 	margin-left: 17px;
 	color: #222;
 }
-
+#content{
+	padding-right: 14px;
+	overflow-y: scroll;
+	font-family: arial, sans-serif;
+	position: relative;
+	float: right;
+	width: 1074px;
+	height: 342px;
+	display: block;
+	margin: 0;
+	padding: 0;
+}
